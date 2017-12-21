@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Liste des tâches</h1>
+        <table>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.title }}</td>
+                <td>{{ row.done }}</td>
+                <td>{{ row.deadline_date }}</td>
+                <td>{{ row.deadline_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

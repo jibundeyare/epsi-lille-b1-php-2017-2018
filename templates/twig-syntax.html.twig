@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <p>{{ text }}</p>
+        <p>{{ integer }}</p>
+        <p>{{ float|number_format(2, ',') }}</p>
+        <p>{{ date|date('d/m/Y H:i:s', timezone="Europe/Paris") }}</p>
+        <ul>
+            {% for row in rows %}
+                {% if loop.first %}
+                <!-- premier élément -->
+                {% elseif loop.last %}
+                <!-- dernier élément -->
+                {% endif %}
+
+                <li>{{ loop.index }} {{ row.email }}</li>
+
+                {% if loop.first %}
+                <!-- /premier élément -->
+                {% elseif loop.last %}
+                <!-- /dernier élément -->
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for row in rows2 %}
+                <li>{{ loop.index }} {{ row.email }}</li>
+            {% endfor %}
+        </ul>
+        <div>
+            {# le tag verbatim permet d'afficher littéralement le texte #}
+            {% verbatim %}
+            <p>{{ foo }}</p>
+            {% endverbatim %}
+        </div>
+
+        <script>
+        function foo() {
+            console.log('foo');
+        }
+
+        foo();
+        </script>
+    </body>
+</html>
